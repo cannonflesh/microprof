@@ -6,7 +6,7 @@
 
 Все настройки осуществляются за счет передаваемых методу параметров, например:
 ```go
-l := NewCustomLogger(opt...)
+l := NewCustomLogger()
 
 microprof.PrintProfilingInfo(l, microprof.UnitsKb, false)
 ```
