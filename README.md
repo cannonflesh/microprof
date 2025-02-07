@@ -8,7 +8,7 @@
 ```go
 l := NewCustomLogger()
 
-microprof.PrintProfilingInfo(l, microprof.UnitsKb, false)
+microprof.PrintProfilingInfo(l, microprof.UnitsMb, false)
 ```
 
 В точке вызова функция измерит и распечатает в переданный логгер следующие данные:
