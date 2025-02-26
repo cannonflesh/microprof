@@ -26,17 +26,17 @@ const (
 func PrintProfilingInfo(l logger, u units, byCPU bool) {
 	var memStats runtime.MemStats
 	runtime.ReadMemStats(&memStats)
-	l.Infof("Allocated Memory: %s\n", formatMemoryUsage(memStats.Alloc, u))
-	l.Infof("Total Allocated Memory: %s\n", formatMemoryUsage(memStats.TotalAlloc, u))
-	l.Infof("Heap Memory: %s\n", formatMemoryUsage(memStats.HeapAlloc, u))
-	l.Infof("Heap System Memory: %s\n", formatMemoryUsage(memStats.HeapSys, u))
-	l.Infof("Garbage Collector Memory: %s\n", formatMemoryUsage(memStats.GCSys, u))
+	l.Infof("Allocated Memory: %s", formatMemoryUsage(memStats.Alloc, u))
+	l.Infof("Total Allocated Memory: %s", formatMemoryUsage(memStats.TotalAlloc, u))
+	l.Infof("Heap Memory: %s", formatMemoryUsage(memStats.HeapAlloc, u))
+	l.Infof("Heap System Memory: %s", formatMemoryUsage(memStats.HeapSys, u))
+	l.Infof("Garbage Collector Memory: %s", formatMemoryUsage(memStats.GCSys, u))
 	percentage, err := cpu.Percent(0, byCPU)
 	if err != nil {
-		l.Errorf("Getting CPU load: %v\n", err)
+		l.Errorf("Getting CPU load: %v", err)
 	}
 	if len(percentage) > 0 {
-		l.Infof("CPU usage: %s\n", formatCpuUsage(percentage))
+		l.Infof("CPU usage: %s", formatCpuUsage(percentage))
 	}
 }
 
